@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form validation exercise</title>
+    <link rel="icon" type="image/png" href="ed-dev-favicon-2.png" />
+    <link <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Join our fantastic newsletter! 📧</h1>
+      <!-- Form -->
+      <form id="form">
+        <!-- Name group -->
+        <div class="form-group">
+          <label for="name">Full name*</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="John Doe"
+            name="name"
+            required
+            minlength="3"
+            maxlength="100"
+          />
+        </div>
+        <!-- Phone group -->
+        <div class="form-group">
+          <label for="phone">Phone number*</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="0123-456-789"
+            name="phone"
+            required
+            pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+          />
+        </div>
+        <!-- Email group -->
+        <div class="form-group">
+          <label for="email">E-mail address*</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="username@hostname.tld"
+            name="email"
+            required
+          />
+        </div>
+        <!-- Website group -->
+        <div class="form-group">
+          <label for="website">Website</label>
+          <input
+            type="url"
+            id="website"
+            placeholder="https://url"
+            name="website"
+          />
+        </div>
+        <!-- Password create group -->
+        <div class="form-group">
+          <label for="password1">Create password*</label>
+          <input
+            onkeyup="trigger()"
+            type="password"
+            id="password1"
+            placeholder="Create password"
+            required
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+            title="Min. 8 characters, 1 uppercase, 1 number"
+          />
+          <i class="fa-regular fa-eye" id="toggle-password"></i>
+        </div>
+        <!-- Password confirm group -->
+        <div class="form-group">
+          <label for="password2">Confirm password*</label>
+          <input
+            type="password"
+            id="password2"
+            placeholder="Confirm password"
+            name="password"
+            required
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+            title="Min. 8 characters, 1 uppercase, 1 number"
+          />
+          <i class="fa-regular fa-eye" id="toggle-password"></i>
+          <!-- Password strength checker -->
+          <div class="indicator">
+            <span class="weak"></span>
+            <span class="medium"></span>
+            <span class="strong"></span>
+          </div>
+          <div class="text"></div>
+        </div>
+        <button type="submit">Join!</button>
+      </form>
+      <!-- Confirmation message -->
+      <div class="message-container">
+        <h3 id="message">Do not hesitate 😀</h3>
+      </div>
+    </div>
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
